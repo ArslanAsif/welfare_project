@@ -1,0 +1,23 @@
+/*########################### Sign-in page style ################################*/
+
+.mdl-layout__content {
+	background-image: url(../img/bg.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+form {
+	margin-top: -35px;
+	padding: 15%;
+}
+
+form button {
+	float: right;
+}
+
+#mat_card {
+	margin-top: 10%;
+}
+
+/*############################# End Sign-in page #################################*/
+

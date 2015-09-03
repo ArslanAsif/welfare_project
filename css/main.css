@@ -1,0 +1,20 @@
+#add_event {
+	padding-right: 25px;
+	padding-left: 25px;
+	padding-top: 15px;
+	padding-bottom: 50px;
+}
+
+h4{
+	color: "#606060";
+}
+
+form button {
+	float: right;
+}
+
+.text_padding {
+	padding-right: 25px;
+	padding-left: 25px;
+	padding-top: 15px;
+}
