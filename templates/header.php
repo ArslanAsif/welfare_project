@@ -1,4 +1,4 @@
-<?php $path="/"?>
+<?php $path="/welfare_project/"?>
 
 <!DOCTYPE html>
 <html>
