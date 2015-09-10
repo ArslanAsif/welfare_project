@@ -27,7 +27,7 @@
 		    Aenan convallis.
 		  </div>
 		  <div class="mdl-card__actions mdl-card--border">
-		    <a href="#/eventAddForm?q='update'" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+		    <a href="#/eventAddForm?q=update&id=<?=$i?>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
 		      Update
 		    </a>
 		  </div>

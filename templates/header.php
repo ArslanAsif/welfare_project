@@ -51,4 +51,4 @@
 			</nav>
 		</div>
 
-		<div class="mdl-layout__content mdl-color--grey-100 ">
+		<main class="mdl-layout__content mdl-color--grey-100 ">

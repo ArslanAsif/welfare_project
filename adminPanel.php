@@ -14,6 +14,7 @@
 	<!--Material design lite hosted files-->
 	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
 	<!--Style sheet-->
 	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
@@ -28,14 +29,7 @@
 			<div class="mdl-layout__header-row">
 				<div class="mdl-layout-title">Home</div>
 				<div class="mdl-layout-title" style="margin-top: 5px"> <i class="material-icons">keyboard_arrow_right</i></div>
-				<div class="mdl-layout-title" style="font-size: 15px; margin-top: 3px; opacity: 0.6" id='demo'>
-					<?php 
-						if($_POST['q'] == update) {
-							echo 'Update';
-						}
-						else echo 'Events';
-					?> 
-				</div>
+				<div class="mdl-layout-title" style="font-size: 15px; margin-top: 3px; opacity: 0.6" id='demo'>Events</div>
 
 				<div class="mdl-layout-spacer"></div>
 
@@ -45,7 +39,7 @@
 		            </label>
 		            <div class="mdl-textfield__expandable-holder">
 		              <input class="mdl-textfield__input" type="text" id="search" />
-		              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+		              <label class="mdl-textfield__label" for="search"></label>
 		            </div>
 		       	</div>
 				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
@@ -73,7 +67,7 @@
 	              <span class="visuallyhidden">Accounts</span>
 	            </button>
 	            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-	              <li class="mdl-menu__item">Change Password</li>
+	              <a href="#editProfile" onclick="getElementById('demo').innerHTML = 'Profile'" style="text-decoration: none"><li class="mdl-menu__item">Edit Profile</li></a>
 	              <a href="signIn.php" style="text-decoration: none"><li class="mdl-menu__item">Log Out</li></a>
 	            </ul>
 	          </div>
@@ -82,7 +76,7 @@
 
 			<header class=""></header>
 			<nav class="my-navigation mdl-navigation">
-				<a class="mdl-navigation__link" href="#/" onclick="getElementById('demo').innerHTML='Events'"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Events</a>
+				<a class="mdl-navigation__link" href="#/" onclick="getElementById('demo').innerHTML='Events'"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Update Events</a>
 				<a class="mdl-navigation__link" href="#/eventAddForm" onclick="getElementById('demo').innerHTML='Add Event'"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">add_circle</i>Add Event</a>
 				<a class="mdl-navigation__link" href="#/eventTable" onclick="getElementById('demo').innerHTML='Tables'"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">view_module</i>Tables</a>
 			</nav>

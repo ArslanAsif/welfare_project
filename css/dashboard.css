@@ -61,3 +61,23 @@ form {
   color: rgba(255, 255, 255, 0.56);
   font-weight: 500;
 }
+
+#gallery img{
+  width: 100%;
+  border-radius: 5px;
+}
+
+.event_img_heading {
+  padding-left: 15px;
+  padding-top: 15px;
+  color: #606060;
+}
+
+.event_img_heading-gallery {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+#images_block {
+  margin-top: -16px;
+}

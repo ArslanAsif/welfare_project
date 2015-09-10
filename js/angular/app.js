@@ -13,6 +13,9 @@ app.config(function($routeProvider) {
 	.when('/eventAddForm', {
 		templateUrl: 'views/eventAddForm.php'
 	})
+	.when('/editProfile', {
+		templateUrl: 'views/editProfile.php'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
