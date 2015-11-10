@@ -1,5 +1,6 @@
 <?php //Fetch template header
 require('includes/helper.php');
+require('/config/config.php');
 render('header', ['title' => 'Events']); ?>
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -10,7 +11,18 @@ render('header', ['title' => 'Events']); ?>
 <div class="mdl-grid">
 	<div class="mld-cell mdl-cell--10-col">
 		<div class="mdl-grid">
-		<?php for ($i=0; $i < 6; $i++) { ?>
+		<?php
+
+		$stmt = $dbhelper->prepare(" SELECT * FROM event ORDER BY e_id ASC");
+
+		$stmt->execute();
+
+		while($result = $stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			$id = $result['e_id'];
+			$date = $result['e_date'];
+
+		?>
 			
 			<div class="mdl-cell mdl-cell--4-col">
 				<!-- Square card -->
@@ -28,14 +40,14 @@ render('header', ['title' => 'Events']); ?>
 
 				<div class="demo-card-square mdl-card mdl-shadow--2dp">
 				  <div class="mdl-card__title mdl-card--expand">
-				    <h2 class="mdl-card__title-text">Update</h2>
+				    <h2 class="mdl-card__title-text"><?=$result['e_title']?></h2>
 				  </div>
 				  <div class="mdl-card__supporting-text">
 				    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 				    Aenan convallis.
 				  </div>
 				  <div class="mdl-card__actions mdl-card--border">
-				    <a href="gallery.php?q=<?=$i?>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+				    <a href="gallery.php?q=<?=$result['e_id']?>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
 				      View
 				    </a>
 				  </div>
@@ -48,10 +60,21 @@ render('header', ['title' => 'Events']); ?>
 	<div class="mdl-cell mdl-cell--2-col mdl-cell mdl-cell--4-col-tablet mdl-cell mdl-cell--4-col-phone">
 		<div id="archive" class="demo-card-square mdl-card mdl-shadow--2dp" style="margin-top: 8px; padding-left: 15px; padding-right: 15px">
 			<h4>Archive</h4>
-			<ul class="events_list" style="margin-left: -30px">
-				<a href="#"><li>Event 1</li></a>
-				<a href="#"><li>Event 2</li></a>
-				<a href="#"><li>Event 3</li></a>
+			<ul class="events_list" style="margin-left: -30px; margin-top: -10px">
+			<?php 
+			$stmt = $dbhelper->prepare(" SELECT * FROM event ORDER BY e_id ASC");
+
+			$stmt->execute();
+
+			while($result = $stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				$id = $result['e_id'];
+				$date = $result['e_date'];
+			}
+			?>
+				<a href="#"><li>January<ul class="events_list" style="margin-left: -20px">
+					<a><li>Event 1</li></a>
+				</ul></li></a>
 			</ul>
 		</div>
 	</div>

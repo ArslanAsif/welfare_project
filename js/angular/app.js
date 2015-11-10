@@ -19,6 +19,7 @@ app.config(function($routeProvider) {
 	.otherwise({
 		redirectTo: '/'
 	});
+
 });
 
 //update dynamically injected code so that it renders correctly with all js stuff
