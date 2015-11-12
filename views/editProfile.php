@@ -7,21 +7,21 @@ require('../config/config.php');
 
 <div class="mdl-grid">
 <?php
-	if(isset($_SESSION['username']))
-	{
-		$stmt = $dbhelper->prepare("SELECT * FROM admin where emailid = ?");
-		$stmt->bindParam('1', $_SESSION['username']);
-		$stmt->execute();
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		if($result)
+		if(isset($_SESSION['username']))
 		{
-			$fname = $result['firstname'];
-			$lname = $result['lastname'];
-			$emailid = $result['emailid'];
+			$stmt = $dbhelper->prepare("SELECT * FROM admin where emailid = ?");
+			$stmt->bindParam('1', $_SESSION['username']);
+			$stmt->execute();
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			if($result)
+			{
+				$fname = $result['firstname'];
+				$lname = $result['lastname'];
+				$emailid = $result['emailid'];
+			}
+			else throw new Exception("Error Processing Request", 1);
 		}
-		else throw new Exception("Error Processing Request", 1);
-	}
-	else header("Location: signIn.php");
+		else header("Location: signIn.php");
 ?>
 
 	<div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
@@ -35,6 +35,7 @@ require('../config/config.php');
 			</form>
 		</div>
 	</div>
+
 	<div class="mdl-cell mdl-cell--8-col">
 		<div class="mdl-color--white mdl-shadow--2dp">
 			<form id="add-event" action="editProfile.php" method="post">
@@ -130,7 +131,7 @@ require('../config/config.php');
 		}
 		catch(PDOException $e)
 	    {
-	    echo "Error: " . $e->getMessage();
+	    	echo "Error: " . $e->getMessage();
 	    }
 
 	}

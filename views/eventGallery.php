@@ -18,7 +18,7 @@ require('../config/config.php');
 		$result['e_title'];
 		$id = $result['e_id'];
 
-	?>
+?>
 
 	<div class="mdl-cell mdl-cell--4-col">
 		<!-- Square card -->

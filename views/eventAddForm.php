@@ -1,6 +1,57 @@
 <?php 
 require('../config/config.php');
 include("../templates/admin_header.php");
+
+function checkDuplicate($title, $type, $descr)
+{
+	$stmt = $dbhelper->prepare("SELECT * FROM event WHERE e_title=? AND e_type=? AND e_desc=? ");
+	$stmt->bindParam('1', $title);
+	$stmt->bindParam('2', $type);
+	$stmt->bindParam('3', $descr);
+
+	$stmt->execute();
+	
+	if($result = $stmt->fetch(PDO::FETCH_ASSOC))
+	{
+		echo "Error! Duplicate content.";
+		return false;
+	}
+
+	return true;
+}
+
+function updateEvent($title, $type, $descr)
+{
+	$stmt = $dbhelper->prepare("UPDATE event SET e_title = ?, e_type = ?, e_desc = ? WHERE e_id = ?");
+	$stmt->bindParam('1', $title);
+	$stmt->bindParam('2', $type);
+	$stmt->bindParam('3', $descr);
+	$stmt->bindParam('4', $_GET['id']);
+	$stmt->execute();
+	echo "Successfully Updated!";
+}
+
+function insert($title, $type, $descr)
+{
+
+	$stmt = $dbhelper->prepare("INSERT INTO event(e_title, e_type, E_desc) VALUES(?, ?, ?)");
+	$stmt->bindParam('1', $title);
+	$stmt->bindParam('2', $type);
+	$stmt->bindParam('3', $descr);
+	$stmt->execute();
+	echo "Successfully submiitted!";
+}
+
+function deleteEvent()
+{
+	
+	$stmt = $dbhelper->prepare("DELETE FROM event WHERE e_id = ?");
+	$stmt->bindParam('1', $_GET['id']);
+
+	$stmt->execute();
+	echo "Successfully deleted";
+	
+}
 ?>
 
 <!--Add Event form-->
@@ -62,8 +113,9 @@ include("../templates/admin_header.php");
 				if($result = $stmt->fetch(PDO::FETCH_ASSOC))
 				{
 					//echo "Event exists.";
+					$q = "update";
 			?>
-			<form id="add-event" action="eventAddForm.php?q=update&id=<?=$id?>" method="POST">
+			<form id="add-event" action="eventAddForm.php?q=<?=$q?>&id=<?=$id?>" method="POST">
 				<h3 style="color: #606060">Event Details</h3>
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
@@ -81,7 +133,8 @@ include("../templates/admin_header.php");
 					<label class="mdl-textfield__label" for="desc_field">Description</label>
 				</div>
 
-				<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit">Submit</button>
+				<input class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" name="submitBtn" value="Update details" type="submit" /><i>&nbsp&nbsp</i>
+				<input class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised mdl-js-ripple-effect" name="deleteBtn" value="Delete event" type="submit" />
 
 			<?php 
 				}
@@ -106,55 +159,45 @@ include("../templates/admin_header.php");
 					<label class="mdl-textfield__label" for="desc_field">Description</label>
 				</div>
 
-				<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit">Submit</button>
+				<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" onclick="submit()">Submit</button>
 
-				<?php 
-					}
+			<?php 
+			}
 				
-
 				if($_SERVER['REQUEST_METHOD'] === 'POST')
 				{
 							
 					try
 					{
+					
 						$title = $_POST['title'];
 						$type = $_POST['type'];
 						$descr = $_POST['descr'];
 
-
-						//check if duplicate is being inserted
-						$stmt = $dbhelper->prepare("SELECT * FROM event WHERE e_title=? AND e_type=? AND e_desc=? ");
-						$stmt->bindParam('1', $title);
-						$stmt->bindParam('2', $type);
-						$stmt->bindParam('3', $descr);
-
-						$stmt->execute();
-						
-						if($result = $stmt->fetch(PDO::FETCH_ASSOC))
+						if(isset($_GET['id']) && isset($_GET['q']))
 						{
-							echo "Error! Duplicate content.";
-						}
-						
-						//Update if ID is passed
-						else if($id)
-						{	
-							$stmt = $dbhelper->prepare("UPDATE event SET e_title = ?, e_type = ?, e_desc = ? WHERE e_id = ?");
-							$stmt->bindParam('1', $title);
-							$stmt->bindParam('2', $type);
-							$stmt->bindParam('3', $descr);
-							$stmt->bindParam('4', $id);
-							$stmt->execute();
-							echo "Successfully Updated!";
+							//Update event
+							if($_GET['q'] == "update")
+							{
+								if(checkDuplicate($title, $type, $descr) == true)
+								{
+									updateEvent($title, $type, $descr);
+								}
+							}
+
+							//Delete event
+							if($_GET['q'] == "delete")
+							{
+								delete();
+							}
 						}
 
 						else //insert record into database
 						{
-							$stmt = $dbhelper->prepare("INSERT INTO event(e_title, e_type, E_desc) VALUES(?, ?, ?)");
-							$stmt->bindParam('1', $title);
-							$stmt->bindParam('2', $type);
-							$stmt->bindParam('3', $descr);
-							$stmt->execute();
-							echo "Successfully submiitted!";
+							if(checkDuplicate($title, $type, $descr) == true)
+							{
+								insert($title, $type, $descr);
+							}
 							//header("Location: eventAddForm.php?u=success");
 						}
 					}
@@ -173,4 +216,7 @@ include("../templates/admin_header.php");
 
 </div>
 
-<?php include("../templates/admin_footer.php"); ?>
+<?php 
+
+	include("../templates/admin_footer.php"); 
+?>
