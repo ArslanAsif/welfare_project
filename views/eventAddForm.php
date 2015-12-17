@@ -2,7 +2,7 @@
 require('../config/config.php');
 include("../templates/admin_header.php");
 
-function checkDuplicate($title, $type, $descr)
+function checkDuplicate($title, $type, $descr, $dbhelper)
 {
 	$stmt = $dbhelper->prepare("SELECT * FROM event WHERE e_title=? AND e_type=? AND e_desc=? ");
 	$stmt->bindParam('1', $title);
@@ -20,7 +20,7 @@ function checkDuplicate($title, $type, $descr)
 	return true;
 }
 
-function updateEvent($title, $type, $descr)
+function updateEvent($title, $type, $descr, $dbhelper)
 {
 	$stmt = $dbhelper->prepare("UPDATE event SET e_title = ?, e_type = ?, e_desc = ? WHERE e_id = ?");
 	$stmt->bindParam('1', $title);
@@ -31,7 +31,7 @@ function updateEvent($title, $type, $descr)
 	echo "Successfully Updated!";
 }
 
-function insert($title, $type, $descr)
+function insert($title, $type, $descr, $dbhelper)
 {
 
 	$stmt = $dbhelper->prepare("INSERT INTO event(e_title, e_type, E_desc) VALUES(?, ?, ?)");
@@ -42,7 +42,7 @@ function insert($title, $type, $descr)
 	echo "Successfully submiitted!";
 }
 
-function deleteEvent()
+function deleteEvent($dbhelper)
 {
 	
 	$stmt = $dbhelper->prepare("DELETE FROM event WHERE e_id = ?");
@@ -115,6 +115,7 @@ function deleteEvent()
 					//echo "Event exists.";
 					$q = "update";
 			?>
+
 			<form id="add-event" action="eventAddForm.php?q=<?=$q?>&id=<?=$id?>" method="POST">
 				<h3 style="color: #606060">Event Details</h3>
 
@@ -134,8 +135,12 @@ function deleteEvent()
 				</div>
 
 				<input class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" name="submitBtn" value="Update details" type="submit" /><i>&nbsp&nbsp</i>
-				<input class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised mdl-js-ripple-effect" name="deleteBtn" value="Delete event" type="submit" />
+				<p id="message"></p>
+			</form>
 
+			<form id="del-event" action="eventAddForm.php?q=<?="delete"?>&id=<?=$id?>" method="POST">
+				<input class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised mdl-js-ripple-effect" name="deleteBtn" value="Delete event" type="submit" />
+			</form>
 			<?php 
 				}
 			}
@@ -160,7 +165,8 @@ function deleteEvent()
 				</div>
 
 				<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" onclick="submit()">Submit</button>
-
+				<p id="message"></p>
+			</form>
 			<?php 
 			}
 				
@@ -179,24 +185,24 @@ function deleteEvent()
 							//Update event
 							if($_GET['q'] == "update")
 							{
-								if(checkDuplicate($title, $type, $descr) == true)
+								if(checkDuplicate($title, $type, $descr, $dbhelper) == true)
 								{
-									updateEvent($title, $type, $descr);
+									updateEvent($title, $type, $descr, $dbhelper);
 								}
 							}
 
 							//Delete event
 							if($_GET['q'] == "delete")
 							{
-								delete();
+								delete($dbhelper);
 							}
 						}
 
 						else //insert record into database
 						{
-							if(checkDuplicate($title, $type, $descr) == true)
+							if(checkDuplicate($title, $type, $descr, $dbhelper) == true)
 							{
-								insert($title, $type, $descr);
+								insert($title, $type, $descr, $dbhelper);
 							}
 							//header("Location: eventAddForm.php?u=success");
 						}
@@ -209,8 +215,7 @@ function deleteEvent()
 				}
 
 				?>
-				<p id="message"></p>
-			</form>
+				
 		</div>
 	</div>
 
