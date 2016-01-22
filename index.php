@@ -9,6 +9,7 @@ render('header', ['title' => 'Home']); ?>
 <div class="mdl-grid">
 	<div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col">
 		This is landing page!
+        Yo
 	</div>
 </div>
 
