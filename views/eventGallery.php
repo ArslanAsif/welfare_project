@@ -1,6 +1,6 @@
 <?php 
 include("../templates/admin_header.php");
-require('../config/config.php');
+require("../config/config.php");
 ?>
 
 <!--Events-->
@@ -9,7 +9,7 @@ require('../config/config.php');
 
 <?php
 
-	$stmt = $dbhelper->prepare(" SELECT * FROM event ORDER BY e_id ASC");
+	$stmt = $dbhelper->prepare("SELECT  e.e_id,e.e_title,e.e_type,g.g_img,e.e_desc,g.cover FROM event e INNER JOIN gallery g on e.e_id=g.e_id and g.cover='1'");
 
 	$stmt->execute();
 	
@@ -35,17 +35,20 @@ require('../config/config.php');
 		</style>
 
 		<div class="demo-card-square mdl-card mdl-shadow--2dp">
-		  <div class="mdl-card__title mdl-card--expand">
-		    <h2 class="mdl-card__title-text"><?=$result['e_title']?></h2>
+            <img src='<?="../images/".$result['g_img']?>' height="180px" width="355px">
+
+            <div class="mdl-card__title mdl-card--expand"style="margin-top:10px ">
+              <h2 style="margin-Top:10px "class="mdl-card__title-text"><?=$result['e_title']?></h2>
 		  </div>
 		  <div class="mdl-card__supporting-text">
 		  	<?=substr($result['e_desc'], 0, 50)."..."?>
 
 		  </div>
-		  <div class="mdl-card__actions mdl-card--border">
-		    <a href="eventAddForm.php?q=update&id=<?=$result['e_id']?>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+		  <div class="mdl-card__actions mdl-card--border" style="margin-bottom:10px ">
+		    <a href="updateEventForm.php?q=update&id=<?=$result['e_id']?>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
 		      Update
 		    </a>
+
 		  </div>
 		</div>
 	</div>

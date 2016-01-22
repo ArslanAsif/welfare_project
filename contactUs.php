@@ -14,23 +14,23 @@ render('header', ['title' => 'Contact Us']); ?>
 			<form id="add_event" action="contactUs.php" method="POST">
 				<h4>Contact Form</h4>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-					<input class="mdl-textfield__input" type="text" id="name_cf" name="name">
-					<label class="mdl-textfield__label" for="name_cf">Name</label>
+					<input class="mdl-textfield__input" type="text" id="name_cf" name="name"required>
+					<label class="mdl-textfield__label" for="name_cf"style="color: #0000ff">Name</label>
 				</div>
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-					<input class="mdl-textfield__input" type="email" id="email_cf" name="email"/>
-					<label class="mdl-textfield__label" for="email_cf">Email</label>
+					<input class="mdl-textfield__input" type="email" id="email_cf" name="email" required/>
+					<label class="mdl-textfield__label" for="email_cf"style="color: #0000ff">Email</label>
 				</div>
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-					<input class="mdl-textfield__input" type="text" id="sub_cf" name="subject" />
-					<label class="mdl-textfield__label" for="sub_cf">Subject</label>
+					<input class="mdl-textfield__input" type="text" id="sub_cf" name="subject" required/>
+					<label class="mdl-textfield__label" for="sub_cf"style="color: #0000ff">Subject</label>
 				</div>
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-					<textarea class="mdl-textfield__input" type="text" rows='4' id="msg_field" name="message"></textarea>
-					<label class="mdl-textfield__label" for="msg_field">Message</label>
+					<textarea class="mdl-textfield__input" type="text" rows='4' id="msg_field" name="message"required></textarea>
+					<label class="mdl-textfield__label" for="msg_field"style="color: #0000ff">Message</label>
 				</div>
 
 				<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit">Submit</button>
@@ -52,57 +52,51 @@ render('header', ['title' => 'Contact Us']); ?>
 </div>
 
 <?php
-
 	if($_SERVER['REQUEST_METHOD'] === 'POST')
 	{
-		try
-		{
+
 			$sender_name = $_POST['name'];
 			$sender_email = $_POST['email'];
 			$sender_subj = $_POST['subject'];
 			$sender_msg = $_POST['message'];
 
-			//echo $sender_name ."</br>". $sender_email ."</br>". $sender_subj ."</br>". $sender_msg;
 
-			if(isset($sender_name, $sender_email, $sender_subj, $sender_msg))
-			{
-				if($dbhelper)
-				{
-					$stmt = $dbhelper->prepare("SELECT * FROM message WHERE (user_name = ? AND email = ? AND msg_subj = ? AND msg = ?)");
-					$stmt->bindParam('1', $sender_name);
-					$stmt->bindParam('2', $sender_email);
-					$stmt->bindParam('3', $sender_subj);
-					$stmt->bindParam('4', $sender_msg);
-					$stmt->execute();
-					$results = $stmt->fetch(PDO::FETCH_ASSOC);
-				}
+        require 'PHPMailer-master/PHPMailerAutoload.php';
+        $mail = new PHPMailer;
+        $Name=$sender_name;                               // Enable verbose debug output
+        $Email=$sender_email;
+        $Subject=$sender_subj;
+        $Message=$sender_msg;
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'techagentx@gmail.com';                 // SMTP username
+        $mail->Password = 'muazahmad';                           // SMTP password
+        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 465;                                   // TCP port to connect to
+        $mail->setFrom('', 'Mailer');
+        $mail->addAddress('techagentx@gmail.com'); // Add a recipient
+        $mail->addReplyTo($Email, 'Information');
+        $mail->isHTML(true);                                 // Set email format to HTML
+        $mail->Subject = $Subject;
+        $mail->Body    = 'From: '.$Email."<br>".'Name: '.$Name."<br>".'Message: '. $Message."<br><br>".'Powered by TechAgentx';
+        //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        ?>
+        <script>
+          //  notie.alert(3, 'Wish Added!', 1);
+        </script>
+        <?php
+        if(!$mail->send()) {
+            ?><script>alert("mail not been sent")</script>
+        <?php
 
-				if(!$results)
-				{
-					$stmt = $dbhelper->prepare("INSERT INTO message(user_name, email, msg_subj, msg) VALUES(?, ?, ?, ?)");
-					$stmt->bindParam('1', $sender_name);
-					$stmt->bindParam('2', $sender_email);
-					$stmt->bindParam('3', $sender_subj);
-					$stmt->bindParam('4', $sender_msg);
+        }else{
+            ?><script>alert("mail has been sent")</script><?php
+        }
 
-					if($stmt->execute())
-					{
-						echo "Your message successfully submitted.";
-					}
-					else throw new Exception("Error Processing Request");
-				}
-				else echo "Already submitted";
-				
-			}
-			else echo "Please fill all the required fields.";
-			
-		}
 
-		catch(Exception $e)
-		{
-			echo 'Error Message: ' .$e->getMessage() .'On line' .$e->getLine();
-		}
 	}
+	
 ?>
 
 <!--Fetch Template footer-->

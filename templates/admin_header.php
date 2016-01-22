@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,9 +26,7 @@
 	<title>Welfare Project</title>
 </head>
 <body>
-<?php 
-	session_start();
-?>
+
 
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 		<!--Header-->
@@ -62,7 +63,7 @@
 		<div class="my-layout mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
 		
 			<header class="my-drawer-header mdl-color--blue-grey-900 ">
-	          <img src="../img/user.jpg" class="my-avatar">
+	          <img src='<?php if(isset($_SESSION['pic'])){echo $_SESSION['pic'];}else{header("Location: signIn.php");} ?>' class="my-avatar">
 	          <div class="my-avatar-dropdown">
 	            <span><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];}else{header("Location: signIn.php");} ?></span>
 	            <div class="mdl-layout-spacer"></div>
@@ -72,7 +73,7 @@
 	            </button>
 	            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
 	              <a href="../views/editProfile.php" onclick="getElementById('demo').innerHTML = 'Profile'" style="text-decoration: none"><li class="mdl-menu__item">Edit Profile</li></a>
-	              <a href="../signIn.php" style="text-decoration: none"><li class="mdl-menu__item">Log Out</li></a>
+	              <a href="../logOut.php" style="text-decoration: none"><li class="mdl-menu__item">Log Out</li></a>
 	            </ul>
 	          </div>
 	        </header>
