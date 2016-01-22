@@ -17,7 +17,7 @@ render('header', ['title' => 'Sign In']); ?>
 			</div>
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<input class="mdl-textfield__input" type="pass" id="pass_field" name="pass" />
+				<input class="mdl-textfield__input" type="password" id="pass_field" name="pass" />
 				<label class="mdl-textfield__label" for="pass_field">Password</label>
 			</div>
 			<br/><br/>

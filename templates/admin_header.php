@@ -72,7 +72,7 @@
 	            </button>
 	            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
 	              <a href="../views/editProfile.php" onclick="getElementById('demo').innerHTML = 'Profile'" style="text-decoration: none"><li class="mdl-menu__item">Edit Profile</li></a>
-	              <a href="../signIn.php" style="text-decoration: none"><li class="mdl-menu__item">Log Out</li></a>
+	              <a href="../logOut.php"  style="text-decoration: none"><li class="mdl-menu__item">Log Out</li></a>
 	            </ul>
 	          </div>
 	        </header>

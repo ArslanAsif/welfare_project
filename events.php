@@ -13,7 +13,7 @@ render('header', ['title' => 'Events']); ?>
 		<div class="mdl-grid">
 		<?php
 
-		$stmt = $dbhelper->prepare(" SELECT * FROM event ORDER BY e_id ASC");
+		$stmt = $dbhelper->prepare(" SELECT  e.e_date,e.e_id,e.e_title,e.e_type,g.g_img,e.e_desc,g.cover FROM event e INNER JOIN gallery g on e.e_id=g.e_id and g.cover='1'");
 
 		$stmt->execute();
 
@@ -39,7 +39,9 @@ render('header', ['title' => 'Events']); ?>
 				</style>
 
 				<div class="demo-card-square mdl-card mdl-shadow--2dp">
-				  <div class="mdl-card__title mdl-card--expand">
+                    <img src='<?="images/".$result['g_img']?>' height="180px" width="355px">
+
+                    <div class="mdl-card__title mdl-card--expand" style="margin-top:10px ">
 				    <h2 class="mdl-card__title-text"><?=$result['e_title']?></h2>
 				  </div>
 				  <div class="mdl-card__supporting-text">

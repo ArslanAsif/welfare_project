@@ -19,7 +19,8 @@
 		<header class="mdl-layout__header mdl-layout__header--scroll">
 			<div class="mdl-layout-icon"></div>
 			<div class="mdl-layout__header-row">
-				<span href="<?= $path?>signIn.php" class="mdl-layout-title">Welfare Project</span>
+                <img src="img/logoWelfare1.png" height="60px" width="250px">
+				<span href="<?= $path?>signIn.php" class="mdl-layout-title"></span>
 				<div class="mdl-layout-spacer"></div>
 				<nav class="mdl-navigation">
 					<a class="mdl-navigation__link" href="<?= $path?>">Home</a>

@@ -1,6 +1,8 @@
 <?php 
 	require('includes/helper.php');
 	render('header', ['title' => 'Gallery']);
+   require('config/dbconnection.php');
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -10,24 +12,32 @@
 
 		<div id="gallery_showcase">
 			<a href="#" onclick="sliderFunction('left')"><i class="material-icons">arrow_back</i></a>
-			<img id="gallery_main_img">
+			<img id="gallery_main_img" style=" height:500px">
 			<a href="#" onclick="sliderFunction('right')"><i class="material-icons">arrow_forward</i></a>
 		</div>
 
 		<div class="mdl-grid" id="gallery">
-			<?php 
-				$i = 0;
-				foreach (glob(__DIR__ . "/img/1920/*.*") as $path) {
-					$image = explode('img', $path);
+            <?php if ( isset($_GET['q'])) {
+                $i = 0;
+                $q =$_GET['q'];
+                $query = "SELECT * from gallery WHERE  e_id='$q' ";
+                $result = mysqli_query($CONNECTION, $query);
+                if ($result) {
+                    if ($result->num_rows > 0) {
+                        while ($notify = mysqli_fetch_assoc($result)) {
 
-			?>
+                            $cover = "images/" . $notify["g_img"];
+                        ?>
 				<div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone">
-					<img id="gallery_img<?=$i?>" onclick="myfunction(this.id)" src = "img<?= $image[1]?>">
-					<p><?= $image[1]?></p>
-				</div>				
+					<img  height="200px" id="gallery_img<?=$i?>" onclick="myfunction(this.id)" src = '<?= $cover?>'>
+				</div>
 			<?php
 					$i++;
-				}
+                        }
+                    }
+                }
+            }
+
 			?>
 			<div id='img_counter' hidden><?=$i?></div>
 

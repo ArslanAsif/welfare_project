@@ -4,6 +4,37 @@ require('../config/config.php');
  ?>
 
 <!--Edit profile form-->
+    <script  src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script async src="//jsfiddle.net/KyleMit/d3H9f/embed/js,css,result/"></script>
+    <script>
+        $(function () {
+            $("#fileToUpload").change(function () {
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+
+        function imageIsLoaded(e) {
+            $('#myImg').attr('src', e.target.result);
+        };
+        function validateForm() {
+            var x = document.forms["myForm"]["event_title"].value;
+            if (x == null || x == "") {
+                return false;
+            }
+            var x1 = document.forms["myForm"]["type_field"].value;
+            if (x1 == null || x1 == "") {
+                return false;
+            }
+            var x2 = document.forms["myForm"]["desc_field"].value;
+            if (x2 == null || x2 == "") {
+                return false;
+            }
+        }
+    </script>
 
 <div class="mdl-grid">
 <?php
@@ -27,7 +58,7 @@ require('../config/config.php');
 
 	<div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
 		<div class="mdl-color--white mdl-shadow--2dp">
-			<img src="../img/user.jpg" width="100%">
+			<img src="../img/user.jpg" width="100%" id="myImg">
 			
 			<form id="add-event" action="editProfile.php" method="post" enctype="multipart/form-data">
 			    Select image to upload:
@@ -111,7 +142,7 @@ require('../config/config.php');
 				
 				if($result = $stmt->fetch(PDO::FETCH_ASSOC))
 				{
-					echo $firstname." ".$lastname." ".$emailid." ".$cpass." ".$npass1."</br>";
+					//echo $firstname." ".$lastname." ".$emailid." ".$cpass." ".$npass1."</br>";
 					if($result['pass'] == $cpass)
 					{
 						if($npass1 == $npass2)
@@ -126,7 +157,8 @@ require('../config/config.php');
 							echo "Successfully Updated!";
 
 							$_SESSION['username'] = $emailid;
-						} else echo "New Password mismatch";
+						}
+                        else echo "New Password mismatch";
 					} else echo "Password is invalid.";
 				}
 			}
@@ -142,7 +174,7 @@ require('../config/config.php');
 	//Image upload
 	function uploadImage()
 	{
-		$target_dir = "img/";
+		$target_dir = "../img/";
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

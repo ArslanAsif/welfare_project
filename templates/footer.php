@@ -14,7 +14,9 @@
 			    <button class="mdl-mini-footer__social-btn"></button>
 			    <button class="mdl-mini-footer__social-btn"></button>
 			  </div>
-			</footer>
+                <br>
+
+            </footer>
 		</main>
 	</div>
 </body>
