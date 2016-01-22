@@ -92,3 +92,12 @@ form button {
 .events_list li {
 	list-style-type: none;
 }
+
+.demo-card-square.mdl-card {
+     width: 100%;
+     height: 300px;
+ }
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+    /*background: url('../img/services/gifts.jpg') bottom right 15% no-repeat #46B6AC;*/
+}

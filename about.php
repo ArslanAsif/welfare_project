@@ -13,20 +13,110 @@ render('header', ['title' => 'About']); ?>
 	<div class="demo-crumbs mdl-color-text--grey-500">
 	  Welfare &gt; About
 	</div>
+
+    <h3>Mission Statement</h3>
+    <p>
+        To provide a helping hand for underprivileged children and women in the vicinity of Lahore.
+    </p>
+
 	<h3>About our organization</h3>
-	  <p>
-	    Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.
-	  </p>
-	  <p>
-	    Commodo nisi non consectetur voluptate incididunt mollit duis dolore amet amet tempor exercitation. Qui amet aute ea aute id ad aliquip proident. Irure duis qui labore deserunt enim in quis nisi sint consequat aliqua. Ex proident labore et laborum tempor fugiat sint magna veniam minim. Nulla dolor labore adipisicing in enim mollit laboris fugiat eu. Aliquip minim cillum ullamco voluptate non dolore non ex duis fugiat duis ad. Deserunt cillum ad et nisi amet non voluptate culpa qui do. Labore ullamco et minim proident est laborum mollit ad labore deserunt ut irure dolore. Reprehenderit ad ad irure ut irure qui est eu velit eu excepteur adipisicing culpa. Laborum cupidatat ullamco eu duis anim reprehenderit proident aute ad consectetur eiusmod.
-	  </p>
-	  <p>
-	    Tempor tempor aliqua in commodo cillum Lorem magna dolore proident Lorem. Esse ad consequat est excepteur irure eu irure quis aliqua qui. Do mollit esse veniam excepteur ut veniam anim minim dolore sit commodo consequat duis commodo. Sunt dolor reprehenderit ipsum minim eiusmod eu consectetur anim excepteur eiusmod. Duis excepteur anim dolor sit enim veniam deserunt anim adipisicing Lorem elit. Cillum sunt do consequat elit laboris nisi consectetur.
-	  </p>
-	<h3>Some more details</h3>
-	  <p>
-	    Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.
-	  </p>
+    <p>
+        Hope Welfare is a non-profit organization which aims to provide a helping hand for the helpless and hopeless children and women of Lahore through quality education, healthcare and social services.
+        For the last 6 years, Hope Welfare has helped educate children, provide rations for poor families, healthcare & treatments for disease stricken individuals unable to pay hospital bills and matrimonial services for girls.
+    </p>
+
+    <p>
+        In 2010, Mrs. Shazia Hussain Butt was inspired by her quality of selflessness to establish this organization and spread the vision of providing hope among the hopeless.
+    </p>
+
+	<h3>Services</h3>
+
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <img src="img/services/students.jpg" width="200px" height="200px">
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <strong>Providing scholarships for poor students</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <img src="img/services/book.jpg" width="200px" height="200px">
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <strong>Providing free books for poor students</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <img src="img/services/health.jpg" width="200px" height="200px">
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <strong>Providing free healthcare and treatment for poor people</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <img src="img/services/rations.jpg" width="200px" height="200px">
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <strong>Providing Rations for poor families during the Holy Month of Ramadan</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <img src="img/services/gifts.jpg" width="200px" height="200px">
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <strong>Distributing clothes and gifts among poor people on Eid-ul-Fitr</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <img src="img/services/marriage.png" width="200px" height="200px">
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <strong>Providing marriage bureau services and dowry for poor girls</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <h3>Members</h3>
+    <ul>
+        <li><p>Shazia Hussain Butt (President)</p></li>
+        <li><p>Mrs. Ayesha Imran (Vice President)</p></li>
+        <li><p>Naeema Rasheed (Vice President)</p></li>
+        <li><p>Ayesha Majeed (Joint Secretary)</p></li>
+        <li><p>Fatima Butt (Finance Secretary)</p></li>
+        <li><p>Kiran (Information Secretary)</p></li>
+        <li><p>Zahid Iqbal Butt</p></li>
+        <li><p>Khawar Masood</p></li>
+        <li><p>Ashraf Khan</p></li>
+        <li><p>Ghulam Hussain Butt</p></li>
+        <li><p>Rao Muhammad Masoom</p></li>
+        <li><p>Fahad Butt</p></li>
+        <li><p>Malik Muhammad Awais</p></li>
+    </ul>
 
 	</div>
 </div>
