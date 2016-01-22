@@ -3,7 +3,6 @@
 require('includes/helper.php');
 require('config/config.php');
 render('header', ['title' => 'Contact Us']); ?>
-    <script type="text/javascript" src="notify.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
 
@@ -15,23 +14,23 @@ render('header', ['title' => 'Contact Us']); ?>
 			<form id="add_event" action="contactUs.php" method="POST">
 				<h4>Contact Form</h4>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-					<input class="mdl-textfield__input" type="text" id="name_cf" name="name" required="">
-					<label class="mdl-textfield__label" for="name_cf" style="color: #0000ff">Name</label>
+					<input class="mdl-textfield__input" type="text" id="name_cf" name="name"required>
+					<label class="mdl-textfield__label" for="name_cf"style="color: #0000ff">Name</label>
 				</div>
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-					<input class="mdl-textfield__input" type="email" id="email_cf" name="email"/>
-					<label class="mdl-textfield__label" for="email_cf">Email</label>
+					<input class="mdl-textfield__input" type="email" id="email_cf" name="email" required/>
+					<label class="mdl-textfield__label" for="email_cf"style="color: #0000ff">Email</label>
 				</div>
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-					<input class="mdl-textfield__input" type="text" id="sub_cf" name="subject" />
-					<label class="mdl-textfield__label" for="sub_cf">Subject</label>
+					<input class="mdl-textfield__input" type="text" id="sub_cf" name="subject" required/>
+					<label class="mdl-textfield__label" for="sub_cf"style="color: #0000ff">Subject</label>
 				</div>
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-					<textarea class="mdl-textfield__input" type="text" rows='4' id="msg_field" name="message"></textarea>
-					<label class="mdl-textfield__label" for="msg_field">Message</label>
+					<textarea class="mdl-textfield__input" type="text" rows='4' id="msg_field" name="message"required></textarea>
+					<label class="mdl-textfield__label" for="msg_field"style="color: #0000ff">Message</label>
 				</div>
 
 				<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit">Submit</button>
@@ -53,7 +52,6 @@ render('header', ['title' => 'Contact Us']); ?>
 </div>
 
 <?php
-
 	if($_SERVER['REQUEST_METHOD'] === 'POST')
 	{
 
@@ -98,7 +96,7 @@ render('header', ['title' => 'Contact Us']); ?>
 
 
 	}
-
+	
 ?>
 
 <!--Fetch Template footer-->

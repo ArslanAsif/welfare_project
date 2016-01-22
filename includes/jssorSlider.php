@@ -102,15 +102,8 @@
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px;
             height: 500px; overflow: hidden;">
             <div>
-                <img u="image" src="img/1920/red.jpg" />
-                <div u="caption" t="NO" t3="RTT|2" r3="137.5%" du3="3000" d3="500" style="position: absolute; width: 445px; height: 300px; top: 100px; left: 600px;">
-                    <img src="img/new-site/c-phone.png" style="position: absolute; width: 445px; height: 300px; top: 0px; left: 0px;" />
-                    <img u="caption" t="CLIP|LR" du="4000" t2="NO" src="../img/new-site/c-jssor-slider.png" style="position: absolute; width: 102px; height: 78px; top: 70px; left: 130px;" />
-                    <img u="caption" t="ZMF|10" t2="NO" src="../img/new-site/c-text.png" style="position: absolute; width: 80px; height: 53px; top: 153px; left: 163px;" />
-                    <img u="caption" t="RTT|10" t2="NO" src="../img/new-site/c-fruit.png" style="position: absolute; width: 140px; height: 90px; top: 60px; left: 220px;" />
-                    <img u="caption" t="T" du="4000" t2="NO" src="../img/new-site/c-navigator.png" style="position: absolute; width: 200px; height: 155px; top: 57px; left: 121px;" />
-                </div>
-
+                <img u="image" src="img/mainSlider/pic11.jpg"/>
+       ]
                 <div style="position: absolute; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px;
                     text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px;
                         color: #FFFFFF;">
@@ -121,7 +114,7 @@
                 </div>
             </div>
             <div>
-                <img u="image" src="img/image.jpg" />
+                <img u="image" src="img/mainSlider/pic12.jpg" />
                 <div style="position: absolute; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px;
                     text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px;
                         color: #FFFFFF;">
@@ -132,7 +125,7 @@
                 </div>
             </div>
             <div>
-                <img u="image" src="img/2nd.jpg" />
+                <img u="image" src="img/mainSlider/pic13.jpg" />
                 <div style="position: absolute; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px;
                     text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px;
                         color: #FFFFFF;">
@@ -142,7 +135,19 @@
                         color: #FFFFFF;">
                 </div>
             </div>
-        </div>
+  <div>
+                <img u="image" src="img/mainSlider/pic4.jpg" />
+                <div style="position: absolute; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px;
+                    text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px;
+                        color: #FFFFFF;">
+                </div>
+                <div style="position: absolute; width: 480px; height: 120px; top: 300px; left: 30px; padding: 5px;
+                    text-align: left; line-height: 36px; font-size: 30px;
+                        color: #FFFFFF;">
+                </div>
+            </div>
+            
+               
                 
         <!--#region Bullet Navigator Skin Begin -->
         <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->

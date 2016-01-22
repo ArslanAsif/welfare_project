@@ -1,6 +1,6 @@
 <?php //Fetch template header
 require('includes/helper.php');
-require('/config/config.php');
+require('config/config.php');
 render('header', ['title' => 'Events']); ?>
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -39,14 +39,14 @@ render('header', ['title' => 'Events']); ?>
 				</style>
 
 				<div class="demo-card-square mdl-card mdl-shadow--2dp">
-                    <img src='<?="images/".$result['g_img']?>' height="180px" width="355px">
+                                 <img src='<?="images/".$result['g_img']?>' height="180px" width="355px">
 
-                    <div class="mdl-card__title mdl-card--expand" style="margin-top:10px ">
+				  <div class="mdl-card__title mdl-card--expand">
 				    <h2 class="mdl-card__title-text"><?=$result['e_title']?></h2>
 				  </div>
 				  <div class="mdl-card__supporting-text">
-				    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				    Aenan convallis.
+				    		  	<?=substr($result['e_desc'], 0, 50)."..."?>
+
 				  </div>
 				  <div class="mdl-card__actions mdl-card--border">
 				    <a href="gallery.php?q=<?=$result['e_id']?>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">

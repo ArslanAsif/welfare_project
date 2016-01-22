@@ -3,6 +3,7 @@ require('includes/helper.php');
 render('header', ['title' => 'About']); ?>
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
+
 <!--Page content-->
 <div class="demo-ribbon"></div>
 

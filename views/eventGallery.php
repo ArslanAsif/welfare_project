@@ -1,6 +1,6 @@
 <?php 
 include("../templates/admin_header.php");
-require('../config/config.php');
+require("../config/config.php");
 ?>
 
 <!--Events-->

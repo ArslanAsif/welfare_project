@@ -74,12 +74,11 @@ function validateForm() {
 					<textarea class="mdl-textfield__input" type="text" rows='5' id="desc_field" name="descr"></textarea>
 					<label class="mdl-textfield__label" for="desc_field">Description</label>
 				</div>
-				<div class="input-append date form_datetime" style="margin-left: 20px;;margin-bottom: 10px;font-size:20">
-                    <input size="16" name="dates" type="DATE" required="" >
-                    <span class="add-on"><i class="icon-th"></i></span>
-                </div>
-
-				<button style="margin-left: 20px;width: 100px" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" name="submit" type="submit" onclick="submit()">Submit</button>
+                               <div class="input-append date form_datetime" style="margin-left: 20px;;margin-bottom: 10px;font-size:20">
+                                     <input size="16" name="dates" type="DATE" required="" >
+                                     <span class="add-on"><i class="icon-th"></i></span>
+                               </div>
+				<button style="margin-left: 20px;width: 100px" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" name="submit" type="submit"   onclick="submit()">Submit</button>
 				<p id="message"></p>
 				<br>
 
