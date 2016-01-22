@@ -26,7 +26,7 @@
 					<a class="mdl-navigation__link" href="<?= $path?>about.php">About</a>
 					<a class="mdl-navigation__link" href="<?= $path?>events.php">Events</a>
 					<a class="mdl-navigation__link" href="<?= $path?>contactUs.php">Contact Us</a>
-					<a class="mdl-navigation__link" href="<?= $path?>signIn.php">Admin Sign-in</a>
+                    <!--	<a class="mdl-navigation__link" href="<?//= $path?>signIn.php">Admin Sign-in</a>-->
 				</nav>
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
@@ -45,9 +45,9 @@
 			<nav class="mdl-navigation">
 				<a class="mdl-navigation__link" href="<?= $path?>/">Home</a>
 				<a class="mdl-navigation__link" href="<?= $path?>about.php">About</a>
-				<a class="mdl-navigation__link" href="<?= $path?>services.php">Services</a>
+				<a class="mdl-navigation__link" href="<?= $path?>events.php">Services</a>
 				<a class="mdl-navigation__link" href="<?= $path?>contactUs.php">Contact Us</a>
-				<a class="mdl-navigation__link" href="<?= $path?>signIn.php">Admin Sign-in</a>
+<!--				<a class="mdl-navigation__link" href="<?//=$path ?>signIn.php">Admin Sign-in</a>-->
 			</nav>
 		</div>
 
