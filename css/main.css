@@ -101,3 +101,14 @@ form button {
     color: #fff;
     /*background: url('../img/services/gifts.jpg') bottom right 15% no-repeat #46B6AC;*/
 }
+
+p
+{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h3, h4
+{
+    margin-left: 20px;
+}

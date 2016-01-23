@@ -41,11 +41,11 @@ render('header', ['title' => 'Contact Us']); ?>
 	<div class="mdl-cell mdl-cell--6-col mdl-cell mdl-cell--8-col-tablet mdl-cell mdl-cell--4-col-phone">
 		<div class="mdl-color--white mdl-shadow--2dp">
 			<div class="text_padding">
-				<h4 >Our Address</h4>
-				<p>Meow meow meow meow meow meow meow meow meow meow meow</p>
+				<h4>Our Address</h4>
+				<p>Qila Gujjar Singh, Lahore, Punjab, Pakistan</p>
 			</div>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d108827.1356231038!2d74.36838626669923!3d31.528334762902553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1441226802670" 
-					width="100%" height="340vh" frameborder="0" style="border:0" allowfullscreen></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6798.841930016136!2d74.32883079717628!3d31.56750203268986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b4964530445%3A0x5222bda913ca2b72!2sQila+Gujjar+Singh%2C+Lahore%2C+Pakistan!5e0!3m2!1sen!2s!4v1453531072730"
+                    width="100%" height="340vh" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
 	</div>
 

@@ -7,7 +7,7 @@ render('header', ['title' => 'About']); ?>
 <!--Page content-->
 <div class="demo-ribbon"></div>
 
-<div class="demo-container mdl-grid">
+<div class="demo-container mdl-grid text-justify" style="margin-bottom: -50px">
 	<div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
 	<div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
 	<div class="demo-crumbs mdl-color-text--grey-500">
@@ -117,7 +117,6 @@ render('header', ['title' => 'About']); ?>
         <li><p>Fahad Butt</p></li>
         <li><p>Malik Muhammad Awais</p></li>
     </ul>
-
 	</div>
 </div>
 
